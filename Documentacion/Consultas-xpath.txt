@@ -1,21 +1,21 @@
-PROYECTO: EL DESPERTAR DEL HEROE
-MODULO: LENGUAJES DE MARCAS
+PROYECTO: EL DESPERTAR DEL HEROE  
+MODULO: LENGUAJES DE MARCAS  
 DOCUMENTO: CONSULTAS XPATH
 
-Archivo XML utilizado: Ranking/ranking.xml
+Archivo XML utilizado: Ranking/ranking.xml  
 Archivo DTD utilizado: Ranking/ranking.dtd
 
 ==================================================
 1. CONSULTAR TODOS LOS NOMBRES
 ==================================================
 
-Pregunta:
+Pregunta:  
 ¿Qué nombres aparecen en el ranking?
 
-Consulta XPath:
+Consulta XPath:  
 //jugador/nombre
 
-Resultado esperado:
+Resultado esperado:  
 Alex, Mario, Lucia, Daniel y Sofia.
 
 Resultado obtenido:
@@ -32,13 +32,13 @@ Estado: CORRECTO.
 2. CONSULTAR TODAS LAS PUNTUACIONES
 ==================================================
 
-Pregunta:
+Pregunta:  
 ¿Qué puntuaciones tienen los jugadores?
 
-Consulta XPath:
+Consulta XPath:  
 //jugador/puntuacion
 
-Resultado esperado:
+Resultado esperado:  
 450, 380, 320, 250 y 150.
 
 Resultado obtenido:
@@ -55,13 +55,13 @@ Estado: CORRECTO.
 3. JUGADORES CON MAS DE 300 PUNTOS
 ==================================================
 
-Pregunta:
+Pregunta:  
 ¿Qué jugadores han conseguido más de 300 puntos?
 
-Consulta XPath:
+Consulta XPath:  
 //jugador[puntuacion > 300]
 
-Resultado esperado:
+Resultado esperado:  
 Alex, Mario y Lucia.
 
 Resultado obtenido:
@@ -76,13 +76,13 @@ Estado: CORRECTO.
 4. BUSCAR LA PUNTUACION DE UN JUGADOR
 ==================================================
 
-Pregunta:
+Pregunta:  
 ¿Qué puntuación ha conseguido Alex?
 
-Consulta XPath:
+Consulta XPath:  
 //jugador[nombre = 'Alex']/puntuacion
 
-Resultado esperado:
+Resultado esperado:  
 450.
 
 Resultado obtenido:
@@ -95,19 +95,37 @@ Estado: CORRECTO.
 5. CONTAR LOS JUGADORES DEL RANKING
 ==================================================
 
-Pregunta:
+Pregunta:  
 ¿Cuántos jugadores hay registrados en el ranking?
 
-Consulta XPath:
+Consulta XPath:  
 count(//jugador)
 
-Resultado esperado:
+Resultado esperado:  
 5 jugadores.
 
-Resultado obtenido:
+Resultado obtenido:  
 Total de jugadores: 5
 
 Estado: CORRECTO.
+
+
+==================================================
+6. FUNCIONAMIENTO DEL RANKING
+==================================================
+
+El ranking permite almacenar y consultar las
+puntuaciones obtenidas por los jugadores.
+
+Los datos se guardan en el archivo ranking.xml
+y se ordenan de mayor a menor puntuación.
+
+El programa permite conservar los resultados
+entre diferentes ejecuciones mediante la lectura
+y escritura del documento XML.
+
+El ranking tiene una capacidad máxima de
+diez jugadores.
 
 
 ==================================================
@@ -124,6 +142,7 @@ setValidating(true).
 Resultado obtenido:
 XML válido según el DTD.
 
+
 ==================================================
 CONCLUSION
 ==================================================
@@ -134,6 +153,9 @@ sobre el archivo ranking.xml.
 Todas las consultas han devuelto los resultados
 esperados y la validación del documento XML
 respecto al DTD ha sido correcta.
+
+Se ha comprobado que el ranking permite almacenar
+y consultar las puntuaciones de los jugadores.
 
 Las pruebas se han ejecutado mediante la clase
 PruebasXML.java.
