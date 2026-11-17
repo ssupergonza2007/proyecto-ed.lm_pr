@@ -84,6 +84,21 @@ Se han realizado pruebas de:
 - Transformación XSLT a HTML.
 - Actualización de la página HTML al modificar el XML.
 
-## 9. Autoría
+## 9. Validacion y pruebas XML
+
+El documento ranking.xml se valida utilizando el archivo externo ranking.dtd.
+
+Se han realizado pruebas para comprobar la detección de errores en documentos XML.
+
+Las pruebas incluyen:
+
+- Detección de etiquetas sin cerrar.
+- Detección de elementos obligatorios ausentes.
+- Corrección de los errores encontrados.
+- Comprobación final de la validez del XML.
+
+Las pruebas se realizan mediante la clase PruebasXML.java.
+
+## 10. Autoría
 
 Proyecto académico desarrollado como trabajo de los módulos de Programación, Entornos de Desarrollo y Lenguajes de Marcas.
