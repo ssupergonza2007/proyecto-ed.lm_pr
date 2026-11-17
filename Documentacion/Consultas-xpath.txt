@@ -1,0 +1,139 @@
+PROYECTO: EL DESPERTAR DEL HEROE
+MODULO: LENGUAJES DE MARCAS
+DOCUMENTO: CONSULTAS XPATH
+
+Archivo XML utilizado: Ranking/ranking.xml
+Archivo DTD utilizado: Ranking/ranking.dtd
+
+==================================================
+1. CONSULTAR TODOS LOS NOMBRES
+==================================================
+
+Pregunta:
+¿Qué nombres aparecen en el ranking?
+
+Consulta XPath:
+//jugador/nombre
+
+Resultado esperado:
+Alex, Mario, Lucia, Daniel y Sofia.
+
+Resultado obtenido:
+Alex
+Mario
+Lucia
+Daniel
+Sofia
+
+Estado: CORRECTO.
+
+
+==================================================
+2. CONSULTAR TODAS LAS PUNTUACIONES
+==================================================
+
+Pregunta:
+¿Qué puntuaciones tienen los jugadores?
+
+Consulta XPath:
+//jugador/puntuacion
+
+Resultado esperado:
+450, 380, 320, 250 y 150.
+
+Resultado obtenido:
+450
+380
+320
+250
+150
+
+Estado: CORRECTO.
+
+
+==================================================
+3. JUGADORES CON MAS DE 300 PUNTOS
+==================================================
+
+Pregunta:
+¿Qué jugadores han conseguido más de 300 puntos?
+
+Consulta XPath:
+//jugador[puntuacion > 300]
+
+Resultado esperado:
+Alex, Mario y Lucia.
+
+Resultado obtenido:
+Alex
+Mario
+Lucia
+
+Estado: CORRECTO.
+
+
+==================================================
+4. BUSCAR LA PUNTUACION DE UN JUGADOR
+==================================================
+
+Pregunta:
+¿Qué puntuación ha conseguido Alex?
+
+Consulta XPath:
+//jugador[nombre = 'Alex']/puntuacion
+
+Resultado esperado:
+450.
+
+Resultado obtenido:
+450
+
+Estado: CORRECTO.
+
+
+==================================================
+5. CONTAR LOS JUGADORES DEL RANKING
+==================================================
+
+Pregunta:
+¿Cuántos jugadores hay registrados en el ranking?
+
+Consulta XPath:
+count(//jugador)
+
+Resultado esperado:
+5 jugadores.
+
+Resultado obtenido:
+Total de jugadores: 5
+
+Estado: CORRECTO.
+
+
+==================================================
+VALIDACION DEL DOCUMENTO XML
+==================================================
+
+Se ha comprobado el archivo Ranking/ranking.xml
+utilizando el archivo externo Ranking/ranking.dtd.
+
+La validación se ha realizado mediante Java
+con la clase DocumentBuilderFactory y el método
+setValidating(true).
+
+Resultado obtenido:
+XML válido según el DTD.
+
+==================================================
+CONCLUSION
+==================================================
+
+Se han realizado cinco consultas XPath diferentes
+sobre el archivo ranking.xml.
+
+Todas las consultas han devuelto los resultados
+esperados y la validación del documento XML
+respecto al DTD ha sido correcta.
+
+Las pruebas se han ejecutado mediante la clase
+PruebasXML.java.

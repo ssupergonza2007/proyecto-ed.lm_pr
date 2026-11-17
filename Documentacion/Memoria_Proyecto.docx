@@ -1,0 +1,314 @@
+EL DESPERTAR DEL HÉROE
+
+Memoria del proyecto final
+
+Ciclo formativo: Desarrollo de Aplicaciones Web (DAW)  
+Curso: 1.º DAW  
+Módulo: Programación  
+Alumno: Gonzalo Ibáñez García  
+
+---
+
+ÍNDICE
+
+1. Introducción
+2. Análisis del problema
+3. Diseño del programa
+4. Desarrollo e implementación
+5. Pruebas realizadas
+6. Control de versiones con Git
+7. Uso de inteligencia artificial
+8. Conclusiones
+9. Bibliografía y recursos
+
+---
+
+1. INTRODUCCIÓN
+
+1.1. Descripción del proyecto
+
+El despertar del héroe es un videojuego de aventuras desarrollado en Java.
+
+El jugador controla a un héroe que debe enfrentarse a tres enemigos diferentes. Durante los combates puede atacar, utilizar pociones para recuperar vida, consultar su inventario o abandonar la partida.
+
+El programa dispone de un menú principal desde el que se puede iniciar una partida, consultar el ranking, acceder a la ayuda o salir del juego.
+
+1.2. Objetivos
+
+Los objetivos principales del proyecto son:
+
+- Aplicar los conocimientos adquiridos durante el curso.
+- Utilizar variables, constantes, condicionales y bucles.
+- Trabajar con métodos y parámetros.
+- Utilizar arrays para almacenar información.
+- Aprender a organizar un programa en diferentes archivos.
+- Gestionar entradas del usuario y controlar errores.
+- Utilizar Git para controlar las versiones del proyecto.
+
+1.3. Herramientas utilizadas
+
+- Java: lenguaje de programación utilizado.
+- Visual Studio Code: entorno de desarrollo.
+- Git: sistema de control de versiones.
+- GitHub: plataforma para alojar el repositorio, si se utiliza.
+
+---
+
+2. ANÁLISIS DEL PROBLEMA
+
+2.1. Funcionamiento general
+
+El programa comienza mostrando un menú principal con cuatro opciones:
+
+1. Nueva partida.
+2. Consultar ranking.
+3. Ayuda.
+4. Salir.
+
+Cuando el jugador inicia una partida, introduce su nombre y comienza la aventura.
+
+El héroe dispone de 100 puntos de vida y tres pociones. Cada poción permite recuperar 25 puntos de vida.
+
+Durante la aventura aparecen tres enemigos, con diferentes cantidades de vida:
+
+- Primer enemigo: 40 puntos.
+- Segundo enemigo: 60 puntos.
+- Tercer enemigo: 80 puntos.
+
+El jugador debe derrotarlos para completar la aventura.
+
+2.2. Reglas del juego
+
+Las reglas principales son:
+
+- El héroe comienza con 100 puntos de vida.
+- El héroe dispone de tres pociones.
+- Cada poción recupera 25 puntos de vida.
+- El ataque del héroe causa entre 10 y 20 puntos de daño.
+- El ataque del enemigo causa entre 5 y 15 puntos de daño.
+- La vida del héroe nunca puede superar los 100 puntos ni ser inferior a cero.
+- Cada enemigo derrotado suma 100 puntos.
+- Si el jugador completa la aventura, se añaden los puntos de vida restantes a su puntuación.
+- El jugador puede abandonar el combate.
+
+2.3. Sistema de puntuaciones
+
+El juego dispone de un ranking con capacidad para cinco jugadores.
+
+Las puntuaciones se ordenan de mayor a menor. Si dos jugadores consiguen la misma puntuación, se mantiene primero el que la consiguió anteriormente.
+
+El ranking se conserva mientras el programa permanece en ejecución.
+
+---
+
+3. DISEÑO DEL PROGRAMA
+
+3.1. Organización de archivos
+
+El proyecto está organizado en diferentes carpetas para separar las funcionalidades.
+
+- SRC: contiene la clase principal y el menú.
+- Combate: contiene la lógica de los enfrentamientos.
+- Personajes: contiene los datos y métodos relacionados con el héroe y los enemigos.
+- Poderes: contiene los ataques, el daño y las pociones.
+- Ranking: gestiona las puntuaciones.
+- Documentacion: contiene los documentos del proyecto.
+
+3.2. Variables y constantes principales
+
+| Variable o constante | Función |
+|---|---|
+| vida | Guarda la vida actual del héroe. |
+| puntuacion | Almacena los puntos obtenidos. |
+| nombre | Guarda el nombre del jugador. |
+| enemigos | Array con la vida inicial de los enemigos. |
+| pociones | Array que representa las tres pociones. |
+| vidaHeroe | Vida del héroe durante el combate. |
+| vidaEnemigo | Vida del enemigo durante el combate. |
+| NUM_POCIONES | Número máximo de pociones. |
+| CURACION_POCION | Cantidad de vida que recupera una poción. |
+
+3.3. Arrays utilizados
+
+Se utilizan arrays para almacenar diferentes datos:
+
+Array de pociones:
+
+Es un array booleano de tres posiciones. Cada posición representa una poción. El valor true indica que está disponible y false que ya se ha utilizado.
+
+Array de enemigos:
+
+Almacena la vida inicial de los tres enemigos: 40, 60 y 80 puntos.
+
+Arrays del ranking:
+
+Se utilizan dos arrays paralelos: uno para los nombres y otro para las puntuaciones. Ambos permiten guardar los cinco mejores resultados.
+
+3.4. Métodos principales
+
+En Principal.java:
+- main(): muestra el menú principal.
+- nuevaPartida(): inicia y controla una partida.
+- mostrarAyuda(): explica las reglas del juego.
+
+En Combate.java:
+- luchar(): gestiona los turnos, las acciones del jugador y los ataques del enemigo.
+
+En Personajes.java:
+- crearEnemigos(): crea el array con la vida de los enemigos.
+- mostrarEnemigo(): muestra la información del enemigo.
+- mostrarHeroe(): muestra la vida del héroe.
+
+En Poderes.java:
+- generarAtaqueHeroe(): genera el daño del héroe.
+- generarAtaqueEnemigo(): genera el daño del enemigo.
+- usarPocion(): recupera vida.
+- aplicarDanio(): resta vida sin permitir valores negativos.
+
+En Ranking.java:
+- registrar(): guarda y ordena las puntuaciones.
+- mostrar(): muestra el ranking.
+
+3.5. Pseudocódigo general
+
+INICIO
+
+Mostrar menú principal.
+
+REPETIR:
+- Leer opción del usuario.
+- Si elige nueva partida:
+  - Pedir nombre.
+  - Inicializar vida, pociones y puntuación.
+  - Crear enemigos.
+  - Combatir contra cada enemigo.
+  - Calcular puntuación.
+  - Registrar resultado.
+- Si elige ranking:
+  - Mostrar puntuaciones.
+- Si elige ayuda:
+  - Mostrar instrucciones.
+- Si elige salir:
+  - Finalizar programa.
+
+HASTA que la opción sea salir.
+
+FIN
+
+---
+
+4. DESARROLLO E IMPLEMENTACIÓN
+
+4.1. Menú principal
+
+El menú principal se ha desarrollado utilizando una estructura do-while y switch.
+
+Esto permite mostrar las opciones repetidamente hasta que el usuario decide salir.
+
+También se controla la entrada del usuario para evitar errores cuando introduce texto en lugar de números.
+
+4.2. Sistema de combate
+
+El combate funciona mediante un bucle while que continúa mientras el héroe y el enemigo tengan vida.
+
+El jugador puede elegir entre atacar, utilizar una poción, consultar el inventario o abandonar.
+
+Cuando realiza una acción válida de ataque o curación, el enemigo responde si sigue vivo.
+
+4.3. Sistema de inventario
+
+El inventario utiliza un array booleano de tres posiciones.
+
+Cada posición representa una poción. Cuando se utiliza una, su valor cambia a false.
+
+El jugador puede consultar el inventario sin consumir un turno de combate.
+
+4.4. Sistema de poderes
+
+Los ataques se generan mediante números aleatorios.
+
+El héroe puede causar entre 10 y 20 puntos de daño, mientras que los enemigos pueden causar entre 5 y 15.
+
+Las pociones recuperan 25 puntos de vida, sin superar el máximo de 100.
+
+4.5. Sistema de ranking
+
+El ranking utiliza dos arrays paralelos con capacidad para cinco registros.
+
+Cuando termina una partida, se registra el nombre y la puntuación. El sistema coloca los resultados en orden descendente y conserva las cinco mejores puntuaciones.
+
+---
+
+5. PRUEBAS REALIZADAS
+
+Para comprobar el funcionamiento del programa se deben realizar diferentes pruebas.
+
+| Nº | Prueba | Resultado esperado |
+|---|---|---|
+| 1 | Introducir un nombre vacío | No iniciar la partida. |
+| 2 | Introducir texto en el menú | Mostrar opción no válida. |
+| 3 | Introducir una opción inexistente | Mostrar opción no válida. |
+| 4 | Derrotar a los tres enemigos | Mostrar victoria final. |
+| 5 | Perder toda la vida | Finalizar la partida por derrota. |
+| 6 | Utilizar una poción | Recuperar 25 puntos de vida, sin superar 100. |
+| 7 | Abandonar el combate | Finalizar la partida y registrar puntuación. |
+| 8 | Consultar el ranking | Mostrar las puntuaciones ordenadas. |
+| 9 | Conseguir puntuaciones iguales | Mantener primero el registro anterior. |
+| 10 | Superar cinco registros | Conservar solamente las cinco mejores puntuaciones. |
+| 11 | Consultar el inventario | Mostrar las pociones sin consumir turno. |
+| 12 | Intentar usar una poción sin tener disponibles | Mostrar un aviso sin consumir turno. |
+
+Nota: completar esta tabla con el resultado real de cada prueba después de ejecutarla. Añadir capturas de pantalla de las pruebas más importantes.
+
+---
+
+6. CONTROL DE VERSIONES CON GIT
+
+Durante el desarrollo del proyecto se utiliza Git para guardar los cambios realizados en el código.
+
+El objetivo es mantener un historial de las modificaciones y poder consultar las diferentes versiones del proyecto.
+
+Se recomienda realizar commits con mensajes descriptivos, por ejemplo:
+
+- Creación de la estructura inicial del proyecto.
+- Implementación del menú principal.
+- Desarrollo del sistema de combate.
+- Implementación del inventario y las pociones.
+- Creación del sistema de ranking.
+- Mejora de la presentación de la consola.
+- Corrección de errores y pruebas finales.
+
+Repositorio: [Añadir aquí el enlace de GitHub, si corresponde].
+
+---
+
+7. USO DE INTELIGENCIA ARTIFICIAL
+
+Durante el desarrollo del proyecto se ha utilizado ChatGPT como herramienta de apoyo.
+
+Se ha empleado para resolver dudas sobre Java, organizar el código en diferentes archivos, comprender el funcionamiento de los métodos y arrays, revisar posibles errores y mejorar la presentación de los mensajes de consola.
+
+El código y las explicaciones proporcionadas por la herramienta se han utilizado como apoyo al aprendizaje. Es responsabilidad del alumno comprender el funcionamiento del programa y poder explicar sus partes durante la defensa del proyecto.
+
+---
+
+8. CONCLUSIONES
+
+La realización de este proyecto ha permitido aplicar los conocimientos adquiridos durante el curso de programación.
+
+Se han trabajado conceptos como variables, constantes, métodos, arrays, estructuras condicionales, bucles y generación de números aleatorios.
+
+También se ha aprendido a organizar un proyecto en diferentes archivos y a utilizar herramientas como Visual Studio Code y Git.
+
+El desarrollo de El despertar del héroe ha servido para comprender mejor cómo se construye un programa desde su planificación hasta su implementación y comprobación.
+
+---
+
+9. BIBLIOGRAFÍA Y RECURSOS
+
+- Apuntes y materiales de clase del módulo de Programación.
+- Documentación oficial de Java: https://docs.oracle.com/en/java/
+- Visual Studio Code: https://code.visualstudio.com/
+- Git: https://git-scm.com/
+- GitHub: https://github.com/
+- ChatGPT: utilizado como herramienta de apoyo durante el desarrollo del proyecto.

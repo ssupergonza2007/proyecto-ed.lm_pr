@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE ranking SYSTEM "ranking.dtd">
+<ranking>
+    <jugador>
+        <nombre>Alex</nombre>
+        <puntuacion>450</puntuacion>
+    </jugador>
+    <jugador>
+        <nombre>Mario</nombre>
+        <puntuacion>380</puntuacion>
+    </jugador>
+    <jugador>
+        <nombre>Gonzalo</nombre>
+        <puntuacion>343</puntuacion>
+    </jugador>
+    <jugador>
+        <nombre>Lucia</nombre>
+        <puntuacion>320</puntuacion>
+    </jugador>
+    <jugador>
+        <nombre>Daniel</nombre>
+        <puntuacion>250</puntuacion>
+    </jugador>
+    <jugador>
+        <nombre>Sofia</nombre>
+        <puntuacion>150</puntuacion>
+    </jugador>
+</ranking>
