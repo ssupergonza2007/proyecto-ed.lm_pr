@@ -1,25 +1,19 @@
-PROYECTO: EL DESPERTAR DEL HEROE
-MODULO: LENGUAJES DE MARCAS
+PROYECTO: EL DESPERTAR DEL HEROE  
+MODULO: LENGUAJES DE MARCAS  
 DOCUMENTO: PRUEBAS DE ERRORES XML Y DTD
 
-ARCHIVO XML UTILIZADO: Ranking/ranking.xml
+ARCHIVO XML UTILIZADO: Ranking/ranking.xml  
 ARCHIVO DTD UTILIZADO: Ranking/ranking.dtd
 
 ==================================================
 1. INTRODUCCION
 ==================================================
 
-En este apartado se realizan dos pruebas para
-comprobar la detección y corrección de errores
-en documentos XML.
+En este apartado se realizan dos pruebas para comprobar la detección y corrección de errores en documentos XML.
 
-El objetivo es verificar que el documento XML
-está bien formado y que cumple las reglas
-establecidas en el archivo DTD.
+El objetivo es verificar que el documento XML está bien formado y que cumple las reglas establecidas en el archivo DTD.
 
-Para realizar las pruebas se ha utilizado la
-clase PruebasXML.java.
-
+Para realizar las pruebas se ha utilizado la clase PruebasXML.java.
 
 ==================================================
 2. PRIMER ERROR: ETIQUETA SIN CERRAR
@@ -27,36 +21,38 @@ clase PruebasXML.java.
 
 Descripción del error:
 
-Se eliminó temporalmente la etiqueta de cierre
-</nombre> del jugador Alex.
+Se eliminó temporalmente la etiqueta de cierre </nombre> del jugador Alex.
 
 Código con el error:
 
+```xml
 <nombre>Alex
+```
 
 Resultado obtenido:
 
 Java detectó el error y mostró el siguiente mensaje:
 
+```text
 The element type "nombre" must be terminated
 by the matching end-tag "</nombre>".
+```
 
 Explicación:
 
-El error se produjo porque la etiqueta nombre
-se abrió, pero no se cerró correctamente.
+El error se produjo porque la etiqueta nombre se abrió, pero no se cerró correctamente.
 
 Solución aplicada:
 
 Se volvió a escribir la etiqueta de cierre:
 
+```xml
 </nombre>
+```
 
 Resultado final:
 
-El error quedó corregido y el elemento nombre
-volvió a estar correctamente formado.
-
+El error quedó corregido y el elemento nombre volvió a estar correctamente formado.
 
 ==================================================
 3. SEGUNDO ERROR: ELEMENTO OBLIGATORIO AUSENTE
@@ -64,69 +60,83 @@ volvió a estar correctamente formado.
 
 Descripción del error:
 
-Se eliminó temporalmente el elemento puntuacion
-del jugador Alex.
+Se eliminó temporalmente el elemento puntuacion del jugador Alex.
 
 Código con el error:
 
+```xml
 <jugador>
     <nombre>Alex</nombre>
 </jugador>
+```
 
 Resultado obtenido:
 
 Java detectó el error y mostró el siguiente mensaje:
 
+```text
 The content of element type "jugador" is incomplete,
 it must match "(nombre,puntuacion)".
+```
 
 Explicación:
 
-El error se produjo porque el DTD establece que
-cada elemento jugador debe contener obligatoriamente
-un elemento nombre seguido de un elemento puntuacion.
+El error se produjo porque el DTD establece que cada elemento jugador debe contener obligatoriamente un elemento nombre seguido de un elemento puntuacion.
 
 Solución aplicada:
 
 Se volvió a añadir el elemento puntuacion:
 
+```xml
 <puntuacion>450</puntuacion>
+```
 
 Resultado final:
 
-El jugador volvió a cumplir la estructura
-establecida en el archivo DTD.
-
+El jugador volvió a cumplir la estructura establecida en el archivo DTD.
 
 ==================================================
 4. COMPROBACION FINAL
 ==================================================
 
-Después de realizar las dos pruebas, se restauró
-el archivo ranking.xml a su estado original.
+Después de realizar las dos pruebas, se restauró el archivo ranking.xml a su estado original.
 
-Se comprobó que el documento volvía a ser válido
-según el DTD.
+Se comprobó que el documento volvía a ser válido según el DTD.
 
 El resultado obtenido fue:
 
+```text
 XML válido según el DTD.
-
+```
 
 ==================================================
 5. CONCLUSION
 ==================================================
 
-Las pruebas realizadas han permitido comprobar
-que el sistema detecta correctamente los errores
-de estructura y validación de los documentos XML.
+Las pruebas realizadas han permitido comprobar que el sistema detecta correctamente los errores de estructura y validación de los documentos XML.
 
-Se ha comprobado la importancia de cerrar
-correctamente las etiquetas y de respetar la
-estructura definida en un DTD externo.
+Se ha comprobado la importancia de cerrar correctamente las etiquetas y de respetar la estructura definida en un DTD externo.
 
-Los dos errores fueron detectados, corregidos
-y comprobados satisfactoriamente.
+Los dos errores fueron detectados, corregidos y comprobados satisfactoriamente.
 
-El archivo ranking.xml quedó restaurado y
-funcionando correctamente.
+El archivo ranking.xml quedó restaurado y funcionando correctamente.
+
+==================================================
+6. COMANDOS PARA EJECUTAR LAS PRUEBAS
+==================================================
+
+Desde la carpeta principal del proyecto:
+
+Compilar las pruebas XML:
+
+```bash
+javac Web/PruebasXML.java
+```
+
+Ejecutar las pruebas XML:
+
+```bash
+java Web.PruebasXML
+```
+
+Estas instrucciones permiten comprobar la validación del documento XML mediante DTD y ejecutar las cinco consultas XPath.
