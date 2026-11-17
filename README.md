@@ -2,17 +2,13 @@
 
 ## 1. Descripcion del proyecto
 
-El despertar del héroe es un juego de aventuras por
-turnos desarrollado en Java.
+El despertar del héroe es un juego de aventuras por turnos desarrollado en Java.
 
-El jugador controla a un héroe que debe enfrentarse
-a diferentes enemigos mediante un sistema de combate.
+El jugador controla a un héroe que debe enfrentarse a diferentes enemigos mediante un sistema de combate.
 
-Durante la partida puede atacar, utilizar pociones
-para recuperar vida y consultar su inventario.
+Durante la partida puede atacar, utilizar pociones para recuperar vida y consultar su inventario.
 
-El juego incluye un sistema de puntuaciones que
-permite guardar los mejores resultados en un ranking.
+El juego incluye un sistema de puntuaciones que permite guardar los mejores resultados en un ranking.
 
 ## 2. Tecnologias utilizadas
 
@@ -42,43 +38,39 @@ permite guardar los mejores resultados en un ranking.
 - Tener instalado Visual Studio Code.
 - Disponer de los archivos del proyecto.
 
-## 5. Como ejecutar el juego
+## 5. Como ejecutar el proyecto
 
-Desde la carpeta principal del proyecto, compilar
-los archivos Java y ejecutar la clase principal.
+Desde la carpeta principal del proyecto, compilar los archivos Java y ejecutar la clase principal.
 
-La clase principal se encuentra en la carpeta SRC.
+```bash
+javac SRC/Principal.java Ranking/Ranking.java
+java SRC.Principal
+```
 
 ## 6. Sistema de ranking
 
-El ranking almacena las puntuaciones de los jugadores
-en un archivo XML.
+El ranking almacena las puntuaciones de los jugadores en un archivo XML.
 
-Los resultados se ordenan de mayor a menor puntuación
-y se conservan como máximo diez jugadores.
+Los resultados se ordenan de mayor a menor puntuación y se conservan como máximo diez jugadores.
 
-Los datos se cargan al iniciar el programa y se
-guardan al finalizar cada partida.
+Los datos se cargan al iniciar el programa y se guardan al finalizar cada partida.
 
 ## 7. Transformacion XML a HTML
 
-El proyecto utiliza una hoja de estilos XSLT
-para transformar el archivo ranking.xml en una
-página HTML.
+El proyecto utiliza una hoja de estilos XSLT para transformar el archivo ranking.xml en una página HTML.
 
-Para generar la página se utiliza la clase
-Transformar.java.
+Para generar la página se utiliza la clase Transformar.java.
 
 Comandos desde la carpeta principal:
 
+```bash
 javac Web/Transformar.java
-
 java Web.Transformar
+```
 
 El resultado se genera en Web/ranking.html.
 
-La página utiliza los estilos definidos en
-Web/estilos.css.
+La página utiliza los estilos definidos en Web/estilos.css.
 
 ## 8. Pruebas realizadas
 
@@ -94,6 +86,4 @@ Se han realizado pruebas de:
 
 ## 9. Autoría
 
-Proyecto académico desarrollado como trabajo
-de los módulos de Programación, Entornos de
-Desarrollo y Lenguajes de Marcas.
+Proyecto académico desarrollado como trabajo de los módulos de Programación, Entornos de Desarrollo y Lenguajes de Marcas.
