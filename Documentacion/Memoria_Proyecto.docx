@@ -1,39 +1,90 @@
-EL DESPERTAR DEL HÉROE
+# EL DESPERTAR DEL HÉROE
 
-Memoria del proyecto final
+## MEMORIA DEL PROYECTO FINAL
 
-Ciclo formativo: Desarrollo de Aplicaciones Web (DAW)  
-Curso: 1.º DAW  
-Módulo: Programación  
-Alumno: Gonzalo Ibáñez García  
+**Ciclo formativo:** Desarrollo de Aplicaciones Web (DAW)  
+**Curso:** 1.º DAW  
+**Módulos:** Programación, Entornos de Desarrollo y Lenguajes de Marcas  
+**Alumno:** Gonzalo Ibáñez García
+**Curso académico:** 2026-2027
 
 ---
 
-ÍNDICE
+# ÍNDICE
 
 1. Introducción
+   1.1. Descripción del proyecto
+   1.2. Objetivos
+   1.3. Herramientas utilizadas
+
 2. Análisis del problema
+   2.1. Funcionamiento general
+   2.2. Reglas del juego
+   2.3. Sistema de puntuaciones
+
 3. Diseño del programa
+   3.1. Organización de archivos
+   3.2. Variables y constantes principales
+   3.3. Arrays utilizados
+   3.4. Métodos principales
+   3.5. Pseudocódigo general
+
 4. Desarrollo e implementación
+   4.1. Menú principal
+   4.2. Sistema de combate
+   4.3. Sistema de inventario
+   4.4. Sistema de poderes
+   4.5. Sistema de ranking
+
 5. Pruebas realizadas
+   5.1. Pruebas del juego
+   5.2. Pruebas del ranking
+   5.3. Pruebas de XML
+   5.4. Pruebas de transformación web
+
 6. Control de versiones con Git
-7. Uso de inteligencia artificial
-8. Conclusiones
-9. Bibliografía y recursos
+   6.1. Uso de Git
+   6.2. Commits y ramas
+   6.3. Repositorio remoto
+
+7. Entornos de Desarrollo
+   7.1. Entorno utilizado
+   7.2. Depuración del programa
+   7.3. Puntos de interrupción
+   7.4. Observación de variables
+   7.5. Ejecución paso a paso
+
+8. Lenguajes de Marcas
+   8.1. Documento XML
+   8.2. Validación mediante DTD
+   8.3. Consultas XPath
+   8.4. Pruebas de errores XML
+   8.5. Transformación XSLT
+   8.6. Página HTML y estilos CSS
+
+9. Uso de inteligencia artificial
+
+10. Conclusiones
+
+11. Bibliografía y recursos
 
 ---
 
-1. INTRODUCCIÓN
+# 1. INTRODUCCIÓN
 
-1.1. Descripción del proyecto
+## 1.1. Descripción del proyecto
 
-El despertar del héroe es un videojuego de aventuras desarrollado en Java.
+El despertar del héroe es un videojuego de aventuras por turnos desarrollado en Java.
 
 El jugador controla a un héroe que debe enfrentarse a tres enemigos diferentes. Durante los combates puede atacar, utilizar pociones para recuperar vida, consultar su inventario o abandonar la partida.
 
 El programa dispone de un menú principal desde el que se puede iniciar una partida, consultar el ranking, acceder a la ayuda o salir del juego.
 
-1.2. Objetivos
+Además, incorpora un sistema de puntuaciones que permite guardar los resultados de los jugadores mediante un documento XML.
+
+El proyecto también incluye la validación del documento XML mediante DTD, consultas XPath y una transformación XSLT que genera una página HTML con los resultados del ranking.
+
+## 1.2. Objetivos
 
 Los objetivos principales del proyecto son:
 
@@ -41,22 +92,39 @@ Los objetivos principales del proyecto son:
 - Utilizar variables, constantes, condicionales y bucles.
 - Trabajar con métodos y parámetros.
 - Utilizar arrays para almacenar información.
-- Aprender a organizar un programa en diferentes archivos.
+- Organizar un programa en diferentes clases y archivos.
 - Gestionar entradas del usuario y controlar errores.
-- Utilizar Git para controlar las versiones del proyecto.
+- Desarrollar un sistema de combate por turnos.
+- Implementar un sistema de puntuaciones.
+- Guardar y recuperar información mediante XML.
+- Validar documentos XML mediante DTD.
+- Realizar consultas XPath.
+- Transformar documentos XML mediante XSLT.
+- Generar una página HTML y aplicar estilos CSS.
+- Utilizar Git y GitHub para controlar las versiones del proyecto.
+- Aprender a utilizar el depurador de Visual Studio Code.
 
-1.3. Herramientas utilizadas
+## 1.3. Herramientas utilizadas
 
-- Java: lenguaje de programación utilizado.
-- Visual Studio Code: entorno de desarrollo.
-- Git: sistema de control de versiones.
-- GitHub: plataforma para alojar el repositorio, si se utiliza.
+Para desarrollar el proyecto se han utilizado las siguientes herramientas:
+
+- **Java:** lenguaje de programación utilizado para desarrollar el videojuego.
+- **JDK:** entorno necesario para compilar y ejecutar el programa.
+- **Visual Studio Code:** editor y entorno de desarrollo utilizado para escribir, organizar y depurar el código.
+- **XML:** formato utilizado para almacenar los resultados del ranking.
+- **DTD:** utilizado para definir la estructura válida del documento XML.
+- **XPath:** utilizado para consultar los datos del ranking.
+- **XSLT:** utilizado para transformar el documento XML en HTML.
+- **HTML:** lenguaje utilizado para generar la página del ranking.
+- **CSS:** utilizado para dar formato y mejorar la presentación de la página.
+- **Git:** sistema de control de versiones.
+- **GitHub:** plataforma utilizada para alojar el repositorio del proyecto.
 
 ---
 
-2. ANÁLISIS DEL PROBLEMA
+# 2. ANÁLISIS DEL PROBLEMA
 
-2.1. Funcionamiento general
+## 2.1. Funcionamiento general
 
 El programa comienza mostrando un menú principal con cuatro opciones:
 
@@ -77,7 +145,11 @@ Durante la aventura aparecen tres enemigos, con diferentes cantidades de vida:
 
 El jugador debe derrotarlos para completar la aventura.
 
-2.2. Reglas del juego
+Durante cada combate puede realizar diferentes acciones. El enemigo responde cuando el jugador realiza una acción válida de ataque o curación y sigue vivo.
+
+Al finalizar la partida, el programa calcula la puntuación obtenida y la registra en el ranking.
+
+## 2.2. Reglas del juego
 
 Las reglas principales son:
 
@@ -86,35 +158,49 @@ Las reglas principales son:
 - Cada poción recupera 25 puntos de vida.
 - El ataque del héroe causa entre 10 y 20 puntos de daño.
 - El ataque del enemigo causa entre 5 y 15 puntos de daño.
-- La vida del héroe nunca puede superar los 100 puntos ni ser inferior a cero.
+- La vida del héroe no puede superar los 100 puntos ni ser inferior a cero.
 - Cada enemigo derrotado suma 100 puntos.
 - Si el jugador completa la aventura, se añaden los puntos de vida restantes a su puntuación.
+- El jugador puede consultar su inventario durante el combate.
 - El jugador puede abandonar el combate.
 
-2.3. Sistema de puntuaciones
+## 2.3. Sistema de puntuaciones
 
-El juego dispone de un ranking con capacidad para cinco jugadores.
+El juego dispone de un sistema de ranking con una capacidad máxima de diez jugadores.
+
+Para gestionar los resultados se utilizan dos arrays paralelos: uno para los nombres y otro para las puntuaciones.
 
 Las puntuaciones se ordenan de mayor a menor. Si dos jugadores consiguen la misma puntuación, se mantiene primero el que la consiguió anteriormente.
 
-El ranking se conserva mientras el programa permanece en ejecución.
+Para conservar los resultados entre diferentes ejecuciones, el programa utiliza un archivo XML llamado ranking.xml.
+
+Al iniciar el juego, el programa carga los datos almacenados en el documento XML. Cuando termina una partida, registra el resultado y guarda los cambios.
+
+De esta manera, las puntuaciones permanecen almacenadas aunque se cierre el programa.
 
 ---
 
-3. DISEÑO DEL PROGRAMA
+# 3. DISEÑO DEL PROGRAMA
 
-3.1. Organización de archivos
+## 3.1. Organización de archivos
 
-El proyecto está organizado en diferentes carpetas para separar las funcionalidades.
+El proyecto está organizado en diferentes carpetas para separar las funcionalidades y facilitar el mantenimiento del código.
 
-- SRC: contiene la clase principal y el menú.
-- Combate: contiene la lógica de los enfrentamientos.
-- Personajes: contiene los datos y métodos relacionados con el héroe y los enemigos.
-- Poderes: contiene los ataques, el daño y las pociones.
-- Ranking: gestiona las puntuaciones.
-- Documentacion: contiene los documentos del proyecto.
+La estructura general es la siguiente:
 
-3.2. Variables y constantes principales
+- **SRC:** contiene la clase principal y el menú del juego.
+- **Combate:** contiene la lógica de los enfrentamientos.
+- **Personajes:** contiene los datos y métodos relacionados con el héroe y los enemigos.
+- **Poderes:** contiene las funcionalidades relacionadas con los ataques, el daño y las pociones.
+- **Ranking:** gestiona las puntuaciones y contiene los archivos XML y DTD.
+- **Documentacion:** contiene la memoria, las consultas XPath y los documentos de pruebas.
+- **Web:** contiene los archivos relacionados con las pruebas XML, la transformación XSLT, los estilos CSS y la página HTML.
+
+Esta organización permite separar las responsabilidades de cada parte del programa y facilita su comprensión.
+
+## 3.2. Variables y constantes principales
+
+Durante el desarrollo se han utilizado diferentes variables y constantes.
 
 | Variable o constante | Función |
 |---|---|
@@ -128,68 +214,82 @@ El proyecto está organizado en diferentes carpetas para separar las funcionalid
 | NUM_POCIONES | Número máximo de pociones. |
 | CURACION_POCION | Cantidad de vida que recupera una poción. |
 
-3.3. Arrays utilizados
+Las constantes permiten mantener definidos los valores principales del juego y facilitan su modificación.
 
-Se utilizan arrays para almacenar diferentes datos:
+## 3.3. Arrays utilizados
 
-Array de pociones:
+Se utilizan arrays para almacenar diferentes datos.
 
-Es un array booleano de tres posiciones. Cada posición representa una poción. El valor true indica que está disponible y false que ya se ha utilizado.
+**Array de pociones:**
 
-Array de enemigos:
+Es un array booleano de tres posiciones. Cada posición representa una poción. El valor true indica que está disponible y false indica que ya se ha utilizado.
+
+**Array de enemigos:**
 
 Almacena la vida inicial de los tres enemigos: 40, 60 y 80 puntos.
 
-Arrays del ranking:
+**Arrays del ranking:**
 
-Se utilizan dos arrays paralelos: uno para los nombres y otro para las puntuaciones. Ambos permiten guardar los cinco mejores resultados.
+Se utilizan dos arrays paralelos: uno para los nombres y otro para las puntuaciones. Ambos permiten almacenar hasta diez registros.
 
-3.4. Métodos principales
+## 3.4. Métodos principales
 
 En Principal.java:
-- main(): muestra el menú principal.
+
+- main(): muestra el menú principal y controla las opciones.
 - nuevaPartida(): inicia y controla una partida.
 - mostrarAyuda(): explica las reglas del juego.
 
 En Combate.java:
+
 - luchar(): gestiona los turnos, las acciones del jugador y los ataques del enemigo.
 
 En Personajes.java:
+
 - crearEnemigos(): crea el array con la vida de los enemigos.
 - mostrarEnemigo(): muestra la información del enemigo.
 - mostrarHeroe(): muestra la vida del héroe.
 
 En Poderes.java:
+
 - generarAtaqueHeroe(): genera el daño del héroe.
 - generarAtaqueEnemigo(): genera el daño del enemigo.
 - usarPocion(): recupera vida.
 - aplicarDanio(): resta vida sin permitir valores negativos.
 
 En Ranking.java:
+
 - registrar(): guarda y ordena las puntuaciones.
 - mostrar(): muestra el ranking.
+- cargar(): recupera los datos almacenados en el XML.
+- guardar(): almacena los resultados en el documento XML.
 
-3.5. Pseudocódigo general
+## 3.5. Pseudocódigo general
 
 INICIO
+
+Cargar el ranking guardado.
 
 Mostrar menú principal.
 
 REPETIR:
+
 - Leer opción del usuario.
 - Si elige nueva partida:
   - Pedir nombre.
+  - Comprobar que el nombre no esté vacío.
   - Inicializar vida, pociones y puntuación.
   - Crear enemigos.
   - Combatir contra cada enemigo.
-  - Calcular puntuación.
-  - Registrar resultado.
+  - Calcular la puntuación.
+  - Registrar el resultado.
+  - Guardar el ranking.
 - Si elige ranking:
-  - Mostrar puntuaciones.
+  - Mostrar las puntuaciones.
 - Si elige ayuda:
-  - Mostrar instrucciones.
+  - Mostrar las instrucciones.
 - Si elige salir:
-  - Finalizar programa.
+  - Finalizar el programa.
 
 HASTA que la opción sea salir.
 
@@ -197,9 +297,9 @@ FIN
 
 ---
 
-4. DESARROLLO E IMPLEMENTACIÓN
+# 4. DESARROLLO E IMPLEMENTACIÓN
 
-4.1. Menú principal
+## 4.1. Menú principal
 
 El menú principal se ha desarrollado utilizando una estructura do-while y switch.
 
@@ -207,7 +307,9 @@ Esto permite mostrar las opciones repetidamente hasta que el usuario decide sali
 
 También se controla la entrada del usuario para evitar errores cuando introduce texto en lugar de números.
 
-4.2. Sistema de combate
+El programa utiliza Scanner para leer las opciones introducidas por el jugador.
+
+## 4.2. Sistema de combate
 
 El combate funciona mediante un bucle while que continúa mientras el héroe y el enemigo tengan vida.
 
@@ -215,7 +317,9 @@ El jugador puede elegir entre atacar, utilizar una poción, consultar el inventa
 
 Cuando realiza una acción válida de ataque o curación, el enemigo responde si sigue vivo.
 
-4.3. Sistema de inventario
+El sistema controla la vida de ambos personajes para evitar valores negativos.
+
+## 4.3. Sistema de inventario
 
 El inventario utiliza un array booleano de tres posiciones.
 
@@ -223,7 +327,9 @@ Cada posición representa una poción. Cuando se utiliza una, su valor cambia a 
 
 El jugador puede consultar el inventario sin consumir un turno de combate.
 
-4.4. Sistema de poderes
+Cuando no quedan pociones disponibles, el programa muestra un aviso al jugador.
+
+## 4.4. Sistema de poderes
 
 Los ataques se generan mediante números aleatorios.
 
@@ -231,84 +337,395 @@ El héroe puede causar entre 10 y 20 puntos de daño, mientras que los enemigos 
 
 Las pociones recuperan 25 puntos de vida, sin superar el máximo de 100.
 
-4.5. Sistema de ranking
+De esta manera, el sistema de combate tiene un componente aleatorio que hace que las partidas puedan desarrollarse de forma diferente.
 
-El ranking utiliza dos arrays paralelos con capacidad para cinco registros.
+## 4.5. Sistema de ranking
 
-Cuando termina una partida, se registra el nombre y la puntuación. El sistema coloca los resultados en orden descendente y conserva las cinco mejores puntuaciones.
+El ranking permite almacenar las puntuaciones obtenidas por los jugadores durante las partidas.
+
+Para gestionar los datos se utilizan dos arrays paralelos: uno almacena los nombres y otro las puntuaciones.
+
+El sistema tiene una capacidad máxima de diez jugadores y ordena los resultados de mayor a menor puntuación.
+
+Cuando finaliza una partida, se registra el nombre del jugador y su puntuación. Si el ranking está completo, se conservan los diez mejores resultados.
+
+Los datos se guardan en el archivo ranking.xml, situado en la carpeta Ranking.
+
+Al iniciar el programa, el método cargar() lee los resultados almacenados. Al finalizar cada partida, los métodos registrar() y guardar() actualizan el ranking.
+
+El uso de XML permite conservar los resultados entre diferentes ejecuciones del programa.
 
 ---
 
-5. PRUEBAS REALIZADAS
+# 5. PRUEBAS REALIZADAS
 
-Para comprobar el funcionamiento del programa se deben realizar diferentes pruebas.
+Para comprobar el funcionamiento del proyecto se han realizado diferentes pruebas sobre el juego, el ranking, los documentos XML y la página web generada.
 
-| Nº | Prueba | Resultado esperado |
+## 5.1. Pruebas del juego
+
+Se ha realizado una partida completa para comprobar el funcionamiento del sistema de combate.
+
+Durante la prueba se comprobaron los ataques, el daño recibido, el uso de pociones, la vida restante y el cálculo de la puntuación.
+
+También se comprobó que el jugador pudiera finalizar la aventura derrotando a los tres enemigos.
+
+En una de las partidas realizadas se obtuvieron los siguientes resultados:
+
+- Jugador: Gonzalo.
+- Enemigos derrotados: tres.
+- Vida restante: 43 puntos.
+- Puntuación final: 343 puntos.
+
+La puntuación se calculó sumando los 100 puntos obtenidos por cada enemigo derrotado y los 43 puntos de vida restantes.
+
+También se realizó otra partida de depuración en la que se observaron 42 puntos de vida restantes y una puntuación final de 342 puntos.
+
+## 5.2. Pruebas del ranking
+
+Se comprobó que las puntuaciones se registraban correctamente y que aparecían ordenadas de mayor a menor.
+
+También se comprobó la conservación de los datos entre diferentes ejecuciones.
+
+Para ello, se cerró el programa y se volvió a abrir. El resultado de la partida seguía apareciendo en el ranking.
+
+El resultado permitió comprobar que la lectura y escritura del archivo XML funcionaban correctamente.
+
+## 5.3. Pruebas de XML
+
+Se comprobó la lectura del documento XML y su validación mediante el archivo DTD.
+
+También se ejecutaron cinco consultas XPath para obtener nombres, puntuaciones, jugadores con más de 300 puntos, la puntuación de un jugador concreto y el número total de registros.
+
+Las consultas devolvieron los resultados esperados durante la prueba.
+
+## 5.4. Pruebas de transformación web
+
+Se ejecutó la clase Transformar.java para generar el archivo HTML a partir del documento XML.
+
+Se comprobó que la página mostraba correctamente la tabla del ranking y que los estilos CSS se aplicaban.
+
+También se modificó temporalmente una puntuación del XML, se volvió a ejecutar la transformación y se comprobó que el HTML reflejaba el cambio.
+
+Después se restauró el dato original.
+
+## 5.5. Resumen de pruebas
+
+| Nº | Prueba realizada | Resultado |
 |---|---|---|
-| 1 | Introducir un nombre vacío | No iniciar la partida. |
-| 2 | Introducir texto en el menú | Mostrar opción no válida. |
-| 3 | Introducir una opción inexistente | Mostrar opción no válida. |
-| 4 | Derrotar a los tres enemigos | Mostrar victoria final. |
-| 5 | Perder toda la vida | Finalizar la partida por derrota. |
-| 6 | Utilizar una poción | Recuperar 25 puntos de vida, sin superar 100. |
-| 7 | Abandonar el combate | Finalizar la partida y registrar puntuación. |
-| 8 | Consultar el ranking | Mostrar las puntuaciones ordenadas. |
-| 9 | Conseguir puntuaciones iguales | Mantener primero el registro anterior. |
-| 10 | Superar cinco registros | Conservar solamente las cinco mejores puntuaciones. |
-| 11 | Consultar el inventario | Mostrar las pociones sin consumir turno. |
-| 12 | Intentar usar una poción sin tener disponibles | Mostrar un aviso sin consumir turno. |
+| 1 | Completar una partida derrotando a los tres enemigos | Correcto |
+| 2 | Comprobar el cálculo de la puntuación final | Correcto |
+| 3 | Utilizar pociones durante el combate | Correcto |
+| 4 | Comprobar el inventario de pociones | Correcto |
+| 5 | Mostrar el ranking ordenado | Correcto |
+| 6 | Cerrar y volver a abrir el programa para comprobar la persistencia | Correcto |
+| 7 | Validar el documento XML mediante DTD | Correcto |
+| 8 | Ejecutar las cinco consultas XPath | Correcto |
+| 9 | Detectar una etiqueta XML sin cerrar | Correcto |
+| 10 | Detectar la ausencia de un elemento obligatorio según el DTD | Correcto |
+| 11 | Generar el HTML mediante XSLT | Correcto |
+| 12 | Comprobar la aplicación de estilos CSS | Correcto |
+| 13 | Comprobar que el HTML se actualiza al modificar el XML | Correcto |
+| 14 | Utilizar puntos de interrupción y observar variables en el depurador | Correcto |
+| 15 | Avanzar por el código mediante F10 | Correcto |
 
-Nota: completar esta tabla con el resultado real de cada prueba después de ejecutarla. Añadir capturas de pantalla de las pruebas más importantes.
-
----
-
-6. CONTROL DE VERSIONES CON GIT
-
-Durante el desarrollo del proyecto se utiliza Git para guardar los cambios realizados en el código.
-
-El objetivo es mantener un historial de las modificaciones y poder consultar las diferentes versiones del proyecto.
-
-Se recomienda realizar commits con mensajes descriptivos, por ejemplo:
-
-- Creación de la estructura inicial del proyecto.
-- Implementación del menú principal.
-- Desarrollo del sistema de combate.
-- Implementación del inventario y las pociones.
-- Creación del sistema de ranking.
-- Mejora de la presentación de la consola.
-- Corrección de errores y pruebas finales.
-
-Repositorio: [Añadir aquí el enlace de GitHub, si corresponde].
+Las pruebas de errores XML se realizaron modificando temporalmente el documento. Después se restauró el archivo y se comprobó nuevamente su validez.
 
 ---
 
-7. USO DE INTELIGENCIA ARTIFICIAL
+# 6. CONTROL DE VERSIONES CON GIT
+
+## 6.1. Uso de Git
+
+Durante el desarrollo del proyecto se ha utilizado Git para guardar los cambios realizados en el código y en los documentos.
+
+El objetivo ha sido mantener un historial de las modificaciones y poder consultar las diferentes versiones del proyecto.
+
+Se ha utilizado el terminal integrado de Visual Studio Code para ejecutar los comandos de Git.
+
+Entre los comandos utilizados se encuentran:
+
+- git status: permite consultar el estado de los archivos.
+- git add: prepara los cambios para guardarlos.
+- git commit: crea una versión del proyecto.
+- git log: muestra el historial de commits.
+- git branch: permite consultar las ramas.
+- git switch: permite cambiar de rama.
+- git merge: permite integrar los cambios de una rama.
+- git push: envía los cambios al repositorio remoto.
+
+## 6.2. Commits y ramas
+
+Durante el desarrollo se han realizado ocho commits para registrar las diferentes modificaciones del proyecto.
+
+Se han utilizado mensajes descriptivos para identificar los cambios realizados.
+
+También se han creado dos ramas de trabajo:
+
+- tarea-ranking: utilizada para trabajar en la documentación relacionada con el ranking y las consultas XPath.
+- tarea-web: utilizada para actualizar la documentación y los archivos relacionados con la parte web.
+
+Posteriormente, los cambios de ambas ramas se integraron en la rama principal main.
+
+Este procedimiento permite organizar el trabajo y mantener un historial de versiones.
+
+## 6.3. Repositorio remoto
+
+El proyecto se ha alojado en GitHub para conservar una copia remota del trabajo.
+
+Repositorio:
+
+https://github.com/ssupergonza2007/proyecto-ed.lm_pr
+
+Los cambios finales se enviaron a GitHub mediante el comando git push origin main.
+
+Se comprobó que la rama main local y la rama origin/main estaban sincronizadas.
+
+---
+
+# 7. ENTORNOS DE DESARROLLO
+
+## 7.1. Entorno utilizado
+
+Para desarrollar el proyecto se ha utilizado Visual Studio Code como entorno de desarrollo.
+
+Esta herramienta permite escribir, organizar, compilar y ejecutar el código Java.
+
+También dispone de herramientas para detectar errores y depurar los programas.
+
+El código se ha organizado en diferentes carpetas y clases para separar las funcionalidades del juego.
+
+## 7.2. Depuración del programa
+
+Durante el desarrollo se ha utilizado el depurador de Visual Studio Code para analizar el funcionamiento interno del programa.
+
+La depuración permite detener temporalmente la ejecución, observar los valores de las variables y avanzar por las instrucciones del código.
+
+El objetivo de esta prueba ha sido comprobar que los datos de la partida se calculaban y almacenaban correctamente.
+
+## 7.3. Puntos de interrupción
+
+Se ha abierto el archivo SRC/Principal.java y se ha colocado un punto de interrupción en la instrucción encargada de registrar la puntuación:
+
+Ranking.registrar(nombre, puntuacion);
+
+El punto de interrupción permite detener el programa justo antes de ejecutar esa instrucción.
+
+Al llegar a esa línea, el depurador detuvo la ejecución y permitió analizar el estado del programa.
+
+## 7.4. Observación de variables
+
+Durante la depuración se utilizó el panel de variables locales para observar los valores almacenados.
+
+En una de las pruebas realizadas se obtuvieron los siguientes valores:
+
+- nombre: yeka.
+- vida: 42.
+- puntuacion: 342.
+- victoria: true.
+
+También se pudieron observar los arrays utilizados durante la partida.
+
+Estos valores permitieron comprobar que el programa había almacenado correctamente la información del jugador y el resultado de la aventura.
+
+## 7.5. Ejecución paso a paso
+
+Se utilizó la tecla F10 para avanzar por el código una instrucción cada vez.
+
+Durante la prueba, el depurador pasó de la instrucción:
+
+Ranking.registrar(nombre, puntuacion);
+
+a la instrucción:
+
+Ranking.guardar();
+
+Esto permitió comprobar el orden en el que se ejecutan las instrucciones encargadas de registrar y guardar las puntuaciones.
+
+También se utilizó F5 para continuar la ejecución del programa.
+
+## 7.6. Resultado de la depuración
+
+La prueba se realizó correctamente.
+
+Se consiguió establecer un punto de interrupción, observar las variables locales y ejecutar el programa paso a paso.
+
+El uso del depurador permitió comprender mejor el funcionamiento del código y comprobar los valores utilizados durante la partida.
+
+---
+
+# 8. LENGUAJES DE MARCAS
+
+## 8.1. Documento XML
+
+El proyecto utiliza XML para almacenar los resultados del ranking de jugadores.
+
+El archivo ranking.xml contiene los nombres y las puntuaciones de los participantes.
+
+Cada jugador se representa mediante un elemento jugador, que contiene los elementos nombre y puntuacion.
+
+El documento XML permite almacenar la información de forma estructurada y facilita su lectura y modificación.
+
+El programa utiliza Java para leer y escribir los datos del documento.
+
+## 8.2. Validación mediante DTD
+
+Para comprobar la estructura del documento XML se ha creado un archivo externo llamado ranking.dtd.
+
+Este archivo establece las reglas que debe cumplir el documento.
+
+La estructura definida indica que el elemento ranking puede contener varios elementos jugador y que cada jugador debe incluir un nombre seguido de una puntuacion.
+
+El contenido del DTD es el siguiente:
+
+<!ELEMENT ranking (jugador*)>
+<!ELEMENT jugador (nombre, puntuacion)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT puntuacion (#PCDATA)>
+
+Se ha utilizado Java para comprobar la validez del documento XML respecto al DTD.
+
+El resultado obtenido durante la prueba fue:
+
+XML válido según el DTD.
+
+## 8.3. Consultas XPath
+
+Se han realizado cinco consultas XPath sobre el archivo ranking.xml.
+
+Las consultas permiten:
+
+**Consulta 1. Obtener todos los nombres de los jugadores**
+
+//jugador/nombre
+
+Esta consulta obtiene los nombres almacenados en el ranking.
+
+**Consulta 2. Obtener todas las puntuaciones**
+
+//jugador/puntuacion
+
+Esta consulta obtiene las puntuaciones de todos los jugadores.
+
+**Consulta 3. Buscar jugadores con más de 300 puntos**
+
+//jugador[puntuacion > 300]
+
+Esta consulta permite localizar los jugadores que superan los 300 puntos.
+
+**Consulta 4. Consultar la puntuación de Alex**
+
+//jugador[nombre = 'Alex']/puntuacion
+
+Esta consulta obtiene la puntuación del jugador cuyo nombre es Alex.
+
+**Consulta 5. Contar los jugadores**
+
+count(//jugador)
+
+Esta consulta permite conocer el número total de jugadores registrados.
+
+Las consultas se ejecutaron mediante la clase PruebasXML.java.
+
+Los resultados obtenidos coincidieron con los resultados esperados durante la prueba.
+
+## 8.4. Pruebas de errores XML
+
+Se realizaron dos pruebas para comprobar la detección de errores en documentos XML.
+
+La primera prueba consistió en eliminar temporalmente una etiqueta de cierre del elemento nombre.
+
+Java detectó que el elemento no estaba correctamente cerrado y mostró un mensaje indicando que faltaba la etiqueta de cierre correspondiente.
+
+La segunda prueba consistió en eliminar el elemento puntuacion de un jugador.
+
+La validación mediante DTD detectó que faltaba un elemento obligatorio, ya que cada jugador debe contener un nombre seguido de una puntuacion.
+
+Después de realizar las pruebas, se restauró el documento XML y se comprobó nuevamente su validez.
+
+Los resultados de estas pruebas se encuentran documentados en el archivo Pruebas-errores-xml.txt.
+
+## 8.5. Transformación XSLT
+
+El proyecto utiliza una hoja de transformación XSLT llamada ranking.xsl.
+
+Su función es transformar los datos almacenados en ranking.xml en una página HTML.
+
+Para realizar la transformación se utiliza la clase Transformar.java, que emplea las herramientas de transformación de Java.
+
+La hoja XSLT obtiene los nombres y las puntuaciones de los jugadores, ordena los resultados de mayor a menor y genera una tabla con las posiciones del ranking.
+
+La transformación permite presentar la información del XML de una forma más visual.
+
+## 8.6. Página HTML y estilos CSS
+
+El resultado de la transformación se genera en el archivo ranking.html.
+
+Para mejorar su presentación se utiliza una hoja de estilos CSS.
+
+Los estilos permiten modificar:
+
+- El tipo de letra.
+- Los colores de fondo.
+- Los colores de los títulos.
+- Los márgenes.
+- Los bordes de la tabla.
+- El aspecto de las filas.
+
+Se ha comprobado que la página muestra correctamente los datos del ranking.
+
+También se modificó temporalmente una puntuación del XML, se volvió a ejecutar la transformación y se comprobó que el HTML reflejaba el cambio realizado.
+
+Después se restauró el dato original.
+
+## 8.7. Resultado del apartado
+
+Las pruebas realizadas han permitido comprobar el funcionamiento de XML, DTD, XPath y XSLT.
+
+También se ha conseguido generar una página HTML a partir de los datos del ranking y aplicar estilos mediante CSS.
+
+Este apartado permite relacionar los datos almacenados por el programa Java con diferentes tecnologías de lenguajes de marcas.
+
+---
+
+# 9. USO DE INTELIGENCIA ARTIFICIAL
 
 Durante el desarrollo del proyecto se ha utilizado ChatGPT como herramienta de apoyo.
 
 Se ha empleado para resolver dudas sobre Java, organizar el código en diferentes archivos, comprender el funcionamiento de los métodos y arrays, revisar posibles errores y mejorar la presentación de los mensajes de consola.
 
-El código y las explicaciones proporcionadas por la herramienta se han utilizado como apoyo al aprendizaje. Es responsabilidad del alumno comprender el funcionamiento del programa y poder explicar sus partes durante la defensa del proyecto.
+También se ha utilizado como apoyo para comprender el funcionamiento de XML, DTD, XPath, XSLT, HTML y CSS, así como para preparar las pruebas y la documentación del proyecto.
+
+Las explicaciones y propuestas proporcionadas por la herramienta se han utilizado como apoyo al aprendizaje.
+
+El alumno ha ejecutado el programa, comprobado sus resultados y debe comprender el funcionamiento de las diferentes partes del código para poder explicarlas durante la defensa del proyecto.
 
 ---
 
-8. CONCLUSIONES
+# 10. CONCLUSIONES
 
-La realización de este proyecto ha permitido aplicar los conocimientos adquiridos durante el curso de programación.
+La realización de este proyecto ha permitido aplicar los conocimientos adquiridos durante el curso en los diferentes módulos.
 
-Se han trabajado conceptos como variables, constantes, métodos, arrays, estructuras condicionales, bucles y generación de números aleatorios.
+En el módulo de Programación se han trabajado conceptos como variables, constantes, métodos, arrays, estructuras condicionales, bucles y generación de números aleatorios.
 
-También se ha aprendido a organizar un proyecto en diferentes archivos y a utilizar herramientas como Visual Studio Code y Git.
+También se ha desarrollado un sistema de combate por turnos y un ranking capaz de conservar los resultados mediante archivos XML.
 
-El desarrollo de El despertar del héroe ha servido para comprender mejor cómo se construye un programa desde su planificación hasta su implementación y comprobación.
+En el módulo de Entornos de Desarrollo se ha trabajado con Visual Studio Code, Git y GitHub. Además, se ha utilizado el depurador para establecer puntos de interrupción, observar variables y ejecutar el programa paso a paso.
+
+En el módulo de Lenguajes de Marcas se han utilizado XML, DTD, XPath y XSLT. También se ha generado una página HTML y se han aplicado estilos mediante CSS.
+
+Las pruebas realizadas han permitido comprobar el funcionamiento de las diferentes partes del proyecto y detectar errores durante el desarrollo.
+
+El desarrollo de El despertar del héroe ha servido para comprender mejor cómo se construye un programa desde su planificación hasta su implementación, documentación y comprobación.
 
 ---
 
-9. BIBLIOGRAFÍA Y RECURSOS
+# 11. BIBLIOGRAFÍA Y RECURSOS
+
+Para desarrollar el proyecto se han utilizado los siguientes recursos:
 
 - Apuntes y materiales de clase del módulo de Programación.
 - Documentación oficial de Java: https://docs.oracle.com/en/java/
 - Visual Studio Code: https://code.visualstudio.com/
-- Git: https://git-scm.com/
+- Documentación de Git: https://git-scm.com/
 - GitHub: https://github.com/
 - ChatGPT: utilizado como herramienta de apoyo durante el desarrollo del proyecto.
